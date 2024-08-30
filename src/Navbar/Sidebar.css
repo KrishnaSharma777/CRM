@@ -1,0 +1,107 @@
+/* Sidebar styles */
+.sidebar {
+    width: 250px; /* Default expanded width */
+    height: 100vh; /* Full viewport height */
+    background-color: #8a898b; /* Sidebar background color */
+    color: #fff;
+    position: fixed; /* Fixed positioning to keep it on the left side */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, width 0.3s ease; /* Smooth transition */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* When sidebar is closed, move it out of view */
+.sidebar.closed {
+    transform: translateX(-100%); /* Move sidebar off-screen */
+    width: 0; /* Optionally set width to 0 */
+    display: none;
+}
+
+/* Sidebar logo styles */
+.sidebar-logo {
+    margin-bottom: 30px;
+}
+
+.sidebar-logo a {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Sidebar links styles */
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f0a500;
+}
+
+.sidebar-links li {
+    margin: 15px 0;
+}
+
+.sidebar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block; /* Makes the link fill the list item */
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar-links a:hover {
+    background-color: #616060; /* Darker background on hover */
+    color: #f0a500; /* Color on hover */
+}
+
+/* Toggle button styles */
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px; /* Adjust position as needed */
+    background-color: #7e7e80;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* Ensure the button is above other elements */
+}
+
+.sidebar-toggle-btn:hover {
+    background-color: #333; /* Darker background on hover */
+}
+.sidebar-text{
+padding: 0; /* Remove padding to align items properly */
+margin: 0;
+font-size: small;
+
+}
+    /* Remove margin for alignment */
+
+
+/* Style each <li> in sidebar-text */
+.sidebar-text li {
+    background-color: rgb(165, 165, 161); /* Light gray background color */
+    color: #140808; /* Dark text color for better contrast */
+    border: 1px solid #ccc; /* Light border around list items */
+    border-radius: 4px; /* Rounded corners for list items */
+    padding: 10px; /* Padding inside each list item */
+    margin: 5px 0; /* Margin between list items */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effects */
+    line-height: 0; /* Adjust the line-height to control the height */
+}
+
+/* Change background and text color on hover */
+.sidebar-text li:hover {
+    background-color: #b0b0b0; /* Darker gray background on hover */
+    color: #000; /* Darker text color on hover */
+}
