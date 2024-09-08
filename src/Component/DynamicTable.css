@@ -1,13 +1,13 @@
 /* Table container */
 .table-container {
-    margin-left: 250px; /* Adjusted for sidebar width */
+   
     margin-top: 60px; /* Adjusted for navbar height */
     padding: 20px;
     overflow-x: auto; /* Ensure table is scrollable on smaller screens */
     display: grid;
     grid-template-columns: 1fr;
 }
-
+z
 /* Table styling */
 .dynamic-table {
     width: 100%;

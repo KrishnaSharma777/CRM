@@ -4,8 +4,8 @@ import Accordion from 'react-bootstrap/Accordion';
 import { Link } from 'react-router-dom';
 
 
-const Sidebar = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
+    // const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -13,10 +13,9 @@ const Sidebar = () => {
 
     return (
         <>
-            <div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
-                <div className="sidebar-logo">
-                   
-                </div>
+            {isSidebarOpen&&<div className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
+                
+                <div className='sidebar-margin'>
                 <ul className="sidebar-links">
                     <Accordion defaultActiveKey="0">
                         <Accordion.Item eventKey="0">
@@ -30,30 +29,17 @@ const Sidebar = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
+                    
                     <Accordion defaultActiveKey="0">
                         <Accordion.Item eventKey="1">
                             <Accordion.Header> <i className="bi bi-app" style={{ marginRight: '8px' }}></i> Application</Accordion.Header>
                             <Accordion.Body>
                                 <ul className='sidebar-text'>
-                                    <li><Link to="/application-new"> Application-New</Link></li>
-                                    <li><Link to="/application-process">Application-Inprocess</Link></li>
-                                    <li><Link to="/application-hold">Application-Hold</Link></li>
-                                    <li><Link to="/application-sent-back">Application-Sent-Back</Link></li>
-                                    <li><Link to="/application-recomndation">Application-Recommendation</Link></li>
-                                </ul>
-                            </Accordion.Body>
-                        </Accordion.Item>
-                    </Accordion>
-                    <Accordion defaultActiveKey="0">
-                        <Accordion.Item eventKey="1">
-                            <Accordion.Header> <i className="bi bi-app" style={{ marginRight: '8px' }}></i> Application</Accordion.Header>
-                            <Accordion.Body>
-                                <ul className='sidebar-text'>
-                                    <li><Link to="/application-new"> Application-New</Link></li>
-                                    <li><Link to="/application-process">Application-Inprocess</Link></li>
-                                    <li><Link to="/application-hold">Application-Hold</Link></li>
-                                    <li><Link to="/application-sent-back">Application-Sent-Back</Link></li>
-                                    <li><Link to="/application-recomndation">Application-Recommendation</Link></li>
+                                    <li><Link to="/application-new"> New</Link></li>
+                                    <li><Link to="/application-process">Inprocess</Link></li>
+                                    <li><Link to="/application-hold">Hold</Link></li>
+                                    <li><Link to="/application-sent-back">Sent-Back</Link></li>
+                                    <li><Link to="/application-recomndation">Recommendation</Link></li>
                                 </ul>
                             </Accordion.Body>
                         </Accordion.Item>
@@ -119,6 +105,7 @@ const Sidebar = () => {
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
+                    
                     <Accordion defaultActiveKey="0">
                         <Accordion.Item eventKey="8">
                             <Accordion.Header> <i className="bi bi-people" style={{ marginRight: '8px' }}></i> Legal</Accordion.Header>
@@ -158,23 +145,24 @@ const Sidebar = () => {
                         <Accordion.Item eventKey="10">
                             <Accordion.Header> <i className="bi bi-app" style={{ marginRight: '8px' }}></i> Others</Accordion.Header>
                             <Accordion.Body>
-                                <ul className='sidebar-text'>
+                                <div className='sidebar-text'>
                                     <li><Link to="/feedback">Costumer FeadBack</Link></li>
-                                    <li><Link to="/Export">Export</Link></li>
+                                    <li><Link to="/export-form">Export</Link></li>
                                     <li><Link to="/mis-report">MIS Report</Link></li>
                                     <li><Link to="/enquiry">Enquiry</Link></li>
-                                    <li><Link to="/">Search</Link></li>
+                                    <li><Link to="/search">Search</Link></li>
 
-                                </ul>
+                                </div>
                             </Accordion.Body>
                         </Accordion.Item>
                     </Accordion>
                    
   
-                </ul>
-            </div>
-            <button className="sidebar-toggle-btn" onClick={toggleSidebar}>
-                {isSidebarOpen ? 'Show Sidebar' : 'Hide Sidebar'}
+                </ul></div>
+            </div>}
+            
+            <button className="sidebar-toggle-btn"  data-toggle="offcanvas" onClick={toggleSidebar}>
+                <i className={`bi ${isSidebarOpen ? ' bi bi-toggle-on' : 'bi bi-toggle-off'}`}></i>
             </button>
         </>
     );

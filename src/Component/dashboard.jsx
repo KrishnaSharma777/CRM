@@ -1,18 +1,14 @@
 import React from 'react';
-import Navbar from '../Navbar/NavBar';
 import Sidebar from '../Navbar/Sidebar';
-const Dashboard = () => {
+import { Navbar } from 'react-bootstrap';
+
+const Dashboard = ({isSidebarOpen}) => {
+
+console.log({isSidebarOpen})
   return (
     <div>
-      <h1>
-        
         <Navbar/>
-        
-
         <Sidebar/>
-
-      </h1>
-     
     </div>
   );
 };
