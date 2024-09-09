@@ -17,12 +17,15 @@ import ForgotPasswordPage from './Component/ForgotPasswordPage';
 import ResetPasswordPage from './Component/ResetPasswordPage';
 import Cookies from 'universal-cookie';
 import UserProfileForm from './Component/UserProfileForm';
+import AddUserForm from './Component/AddUserForm';
+import ViewUsersForm from './Component/ViewUsersForm';
+import ImportCSV from './Component/ImportCSV';
 
 function App() {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const setLogin = useStore((state) => state.setLogin);
-  const [login, setLoginState] = useState(false); // Local state to track login
+  const [login, setLoginState] = useState(true); // Local state to track login
 
   useEffect(() => {
     const cookies = new Cookies();
@@ -53,8 +56,9 @@ function App() {
               
             <Routes>
             <Route path="/user-profile" element={<UserProfileForm />} />
-
-              
+            <Route path='/import-csv' element={<ImportCSV/>}/>
+             <Route path='/view-user' element={<ViewUsersForm/>}/>
+              <Route path='add-users' element={<AddUserForm/>}/>
               <Route path="/dashboard" element={<Dashboard  />} />
          <Route path="/lead-new" element={<DynamicTable  header={["Lead Id","Action","Applied On","Source","Name","State","City","Branch","Mobile","Pan","UserType","Status"]}/>}/>
               <Route path="/lead-hold" element={<DynamicTable  header={["Lead Id","Action","Applied On","Source","Name","State","City","Branch","Mobile","Pan","UserType","Status","Hold-On","Screener" ]} />} />

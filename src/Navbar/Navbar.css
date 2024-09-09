@@ -12,7 +12,10 @@
     align-items: center; /* Vertically centers content */
     justify-content: space-between; /* Space between items */
 }
-
+.user-profile-link{
+    color:black;
+    margin-right: 100px;
+}
 
 .searchbutton:hover {
     background-color: rgb(50, 55, 65); /* Darker background on hover */
@@ -57,4 +60,27 @@
 
 .btn-outline-success {
     margin-left: 0.5rem; /* Space between search box and button */
+}
+.settings-link {
+    color:black;
+    font-size: larger;
+    margin-left: 20px;
+}
+
+.settings-link:hover {
+    color:white;
+}
+
+.dropdown-menu {
+    background-color: #add8e6; /* Match the navbar color or adjust */
+    border: none;
+}
+
+.dropdown-item {
+    color: black;
+}
+
+.dropdown-item:hover {
+    background-color: #7c7b7b;
+    color: white;
 }

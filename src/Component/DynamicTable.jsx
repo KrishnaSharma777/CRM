@@ -2,8 +2,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './DynamicTable.css';
-import Navbar from '../Navbar/NavBar';
-import Sidebar from '../Navbar/Sidebar';
+
 
 
 const DynamicTable = ( {isSidebarOpen,header={header},rows=[]})=>{

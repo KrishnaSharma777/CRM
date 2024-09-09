@@ -21,8 +21,8 @@ const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
                         <Accordion.Item eventKey="0">
                             <Accordion.Header> <i className="bi bi-person" style={{ marginRight: '8px' }}></i>  Lead</Accordion.Header>
                             <Accordion.Body>
-                                <ul className='sidebar-text'>
-                                <li><Link to="/lead-new">Lead-New</Link>    </li>                          
+                                <ul className='sidebar-text  '>
+                                <li ><Link to="/lead-new">Lead-New</Link>    </li>                          
                                       <li><Link to="/lead-process">Lead-Inprocess</Link></li>
                                     <li> <Link to="/lead-hold">Lead-Hold </Link>   </li>
                                 </ul>

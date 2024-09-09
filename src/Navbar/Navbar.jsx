@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
-import './Navbar.css'; // Ensure this CSS file is updated with the styles
+import { Link } from 'react-router-dom';
+import './Navbar.css';
 import Cookies from 'universal-cookie';
-import useStore from '../Store'; // Import Zustand store
+import useStore from '../Store';
 
 const Navbar = () => {
-    const [clientRole, setClientRole] = useState('Client'); // Default role
-    const setLogin = useStore((state) => state.setLogin); // Zustand state management for login status
+    const [clientRole, setClientRole] = useState('Client');
+    const setLogin = useStore((state) => state.setLogin);
     const cookies = new Cookies();
 
     const handleLogout = () => {
-        // Clear the auth token cookie on logout
         cookies.remove('authToken', { path: '/' });
-
-        // Update the login state to false
         setLogin(false);
-
-        // Navigate to the login page after logging out
         window.location.assign('/login');
     };
 
@@ -32,32 +27,67 @@ const Navbar = () => {
 
                 {/* User Profile Link */}
                 <Link to="/user-profile" className="user-profile-link">
-                <i className="bi bi-person-circle" style={{ marginRight: '8px', color: 'white' }}></i>User Profile    
+                    <i className="bi bi-person-circle" style={{ marginRight: '20px', color: 'black' }}></i>
+                    User Profile
                 </Link>
+                
+
+                {/* Settings Dropdown */}
+                
+                <div className="dropdown">
+                    <Link
+                        to="#"
+                        className="dropdown-toggle settings-link"
+                        id="settingsDropdown"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                    >
+                        <i className="bi bi-gear" style={{ marginRight: '8px', color: 'black' }}></i>Setting
+                    </Link>
+                    
+                    <ul className="dropdown-menu" aria-labelledby="settingsDropdown">
+                        <li>
+                            <Link className="dropdown-item" to="/add-users">
+                               Add Users
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="dropdown-item" to="/view-user">
+                               View Users
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="dropdown-item" to="/import-csv">
+                                Import CSV
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="dropdown-item" to="/help">
+                                Add Bank Details
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="dropdown-item" to="/help">
+                                Add Holiday Details
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
 
                 {/* Client Role Dropdown */}
                 <select
                     className="client-role-dropdown"
                     value={clientRole}
                     onChange={handleRoleChange}
-                    style={{ marginLeft: '20px', borderRadius: '50px', textAlign: 'center', height: '30px' }} // Adjusted style
+                    style={{ marginLeft: '20px', borderRadius: '50px', textAlign: 'center', height: '30px' }}
                 >
                     <option value="Guest">AUDIT</option>
                     <option value="Client">CLIENT ADMIN</option>
                     <option value="Admin">SCREENER</option>
-                    <option value="Manager">CREDIT MANAGER</option>
-                    <option value="Guest">CREDIT HEAD</option>
-                    <option value="Guest">DISBURSAL MANAGER</option>
-                    <option value="Guest">COLLECTION EXECUTIVE</option>
-                    <option value="Guest">COLLECTION HEAD</option>
-                    <option value="Guest">ACCOUNT MANAGER</option>
-                    <option value="Guest">ACCOUNT HEAD</option>
-                    <option value="Guest">CUSTOMER CARE</option>
-                    <option value="Guest">OTHER</option>
                 </select>
 
                 {/* Logout Button */}
-                <button style={{ backgroundColor: 'brown' }} onClick={handleLogout}>
+                <button style={{ backgroundColor: 'brown', marginLeft: '20px' }} onClick={handleLogout}>
                     <i className="bi bi-box-arrow-right" style={{ marginLeft: '8px', color: 'white' }}></i>
                 </button>
             </div>
