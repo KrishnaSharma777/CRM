@@ -1,7 +1,6 @@
 import React from 'react';
 import Sidebar from '../Navbar/Sidebar';
-import { Navbar } from 'react-bootstrap';
-
+import Navbar  from '../Navbar/NavBar';
 const Dashboard = ({isSidebarOpen}) => {
 
 console.log({isSidebarOpen})

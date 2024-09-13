@@ -15,7 +15,7 @@
     padding: 20px;
     border: 1px solid #b6b3b3;
     border-radius: 8px;
-    background-color:rgb(240, 238, 238);
+    background-color:rgb(247, 245, 245);
 }
 
 /* Heading styling */
@@ -23,6 +23,7 @@
     background-color: rgb(219, 225, 233); /* Background color */
     color: black; /* Text color */
     text-align: center;
+
     width: 100%; /* Full width */
     border-radius: 4px; /* Rounded corners */
     border: 2px solid #333; /* Border color and width */

@@ -15,18 +15,21 @@ const LoginPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     if (!email || !password) {
       setError('Please enter both email and password');
       return;
     }
-
+  
     try {
-      const response = await axios.post('http://192.168.0.115:4000/login', { userId: email, password });
-
-      if (response.data.success) {
-        // Set a cookie on successful login
-        cookies.set('authToken', response.data.token, { path: '/' }); // Adjust the cookie name and options as needed
+      const response = await axios.post('http://localhost:3000/api/users/login', { email, password });
+  
+      // Check if the response message indicates success
+      if (response.data.message === 'Login successful') {
+        // Optionally set a cookie if the token is included in the response
+        if (response.data.token) {
+          cookies.set('authToken', response.data.token, { path: '/' });
+        }
         
         setLogin(true);
         window.location.assign('/dashboard');
@@ -38,6 +41,7 @@ const LoginPage = () => {
       setError('Something went wrong. Please try again later.');
     }
   };
+  
 
   const handleForgotPassword = () => {
     navigate('/forgot-password');
@@ -52,7 +56,7 @@ const LoginPage = () => {
           <div className="input-group">
             <label htmlFor="email">Email</label>
             <input
-              type="text"
+              type="email"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -71,7 +75,7 @@ const LoginPage = () => {
               placeholder='Password'
             />
           </div>
-          <button type="submit" className="btn">Login</button>
+          <button type="submit" className="btn" >Login</button>
         </form>
         <p className="forgot-password" onClick={handleForgotPassword}>Forgot Password?</p>
       </div>

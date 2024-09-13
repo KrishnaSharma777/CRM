@@ -39,7 +39,6 @@ const Sidebar = ({isSidebarOpen, setIsSidebarOpen}) => {
                                     <li><Link to="/application-process">Inprocess</Link></li>
                                     <li><Link to="/application-hold">Hold</Link></li>
                                     <li><Link to="/application-sent-back">Sent-Back</Link></li>
-                                    <li><Link to="/application-recomndation">Recommendation</Link></li>
                                 </ul>
                             </Accordion.Body>
                         </Accordion.Item>

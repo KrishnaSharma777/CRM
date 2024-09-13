@@ -1,37 +1,41 @@
-// DynamicTable.jsx
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import './DynamicTable.css';
+import { useLocation } from 'react-router-dom';
 
-
-
-const DynamicTable = ( {isSidebarOpen,header={header},rows=[]})=>{
-  // ,header = ["Lead Id","Action","Applied On","Source","Name","State","City","Brand","Mobile","Pan","UserType","Status" ], row = []}) => {
-  // console.log(isSidebarOpen)
+const DynamicTable = ({ header = [], rows = [] }) => {
   const location = useLocation();
-  // const { header, rows } = location.state || { headers: ["Lead Id","Action","Applied On","Source","Name","State","City","Brand","Mobile","Pan","UserType","Status" ], rows: [] };
-  return (    <div className="table-container ">
-     
-      <table >
+
+  return (
+    <div className="table-container">
+      
+      <table>
         <thead>
           <tr>
-            {header?.map((header, index) => (
+            {header.map((headerItem, index) => (
               <th key={index} className="table-header">
-                {header}
+                {headerItem}
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {rows?.map((row, rowIndex) => (
-            <tr key={rowIndex} className="table-row">
-              {row.map((cell, cellIndex) => (
-                <td key={cellIndex} className="table-cell">
-                  {cell}
-                </td>
-              ))}
+          {rows.length > 0 ? (
+            rows.map((row, rowIndex) => (
+              <tr key={rowIndex} className="table-row">
+                {row.map((cell, cellIndex) => (
+                  <td key={cellIndex} className="table-cell">
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={header.length} className="no-data">
+                No data available
+              </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>
